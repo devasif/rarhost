@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import "./style.scss";
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  BrowserRouter,
+  Routes
+} from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { WebHosting } from "./pages/WebHosting";
+import { CpanelHosting } from "./pages/CpanelHosting";
+import { WordpressHosting } from "./pages/WordpressHosting";
+import { ResellerHosting } from "./pages/ResellerHosting";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <BrowserRouter>
+      <Header/>
+     <Routes>
+      <Route path="/" index element={<Home/>}>
+        
+      </Route>
+      <Route path="/web-hosting" element={<WebHosting/>}></Route>
+      <Route path="/cpanel-hosting" element={<CpanelHosting/>}></Route>
+      <Route path="/wordpress-hosting" element={<WordpressHosting/>}></Route>
+      <Route path="/reseller-hosting" element={<ResellerHosting/>}></Route>
+     </Routes>
+     <Footer/>
+      </BrowserRouter>
+    </>
   );
 }
 
